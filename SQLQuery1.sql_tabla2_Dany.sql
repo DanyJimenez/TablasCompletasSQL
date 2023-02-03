@@ -55,3 +55,25 @@ values
 ('250067','63502720','01/03/2011'),
 ('289011','1098098097','01/02/2011'),
 ('345671 ','63502720','01/04/2011')
+
+
+select * from profesor order by cate_prof;
+
+select * from curso where valor_cur > 500000;
+
+select count(*) from estudiante where edad_est > 22;
+
+select nom_est, edad_est from Estudiante where edad_est in(select min(edad_est) from Estudiante);
+
+select avg(valor_cur) from curso where horas_cur > 40;
+
+select avg(sal_prof) from Profesor where cate_prof = 1;
+
+select * from curso order by valor_cur;
+
+select nom_prof from Profesor where sal_prof in(select min(sal_prof) from Profesor);
+
+select doc_est, nom_est, nom_curs,horas_cur,valor_cur  from Estudiante, curso, Estudiantexcurso where cod_curs = cod_cur_estcur and doc_est = doc_est_estcur and fec_ini_estcur = '20110201';
+
+select * from Profesor where sal_prof > 500000 and sal_prof < 700000;
+

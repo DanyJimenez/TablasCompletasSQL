@@ -71,3 +71,25 @@ values
 ('1', '2012-09-30', 'DKZ820' , 'Bucaramanga', '0' , '0' , '2'),
 ('2', '2012-09-27', 'FLL420' , 'Girón', '1' , '0' , '1'),
 ('3', '2011-09-28', 'FLL420' , 'Bucaramanga', '1' , '0' , '2')
+
+
+select * from compañia where comañofun >= 1991 and comañofun <= 1998;
+
+select autoplaca, automodelo, automarca, autopasajeros, autocilindraje, autnombre, asecosto,asevalorasegurado from automotores, aseguramientos, tiposAutomotores where autoplaca = aseplaca and auttipo = auttipo and asefechaexpiracion <= '2013-08-31' and asefechaexpiracion >= '2013-08-01';
+
+select incifecha,inciplaca, incilugar, asecodigo,  asefechainicio, asevalorasegurado from incidentes, aseguramientos where inciplaca = aseplaca and incifecha = '2012-09-30';
+
+select inciantheridos, autoplaca, incilugar, incifecha, asefechainicio, asecosto, aseestado, asevalorasegurado from incidentes, aseguramientos, automotores where inciplaca = aseplaca and autoplaca = inciplaca and inciantheridos = 1;
+
+select * from aseguramientos where asecosto in(select max(asecosto)from aseguramientos);
+
+select incicanautosinvolucrados, inciplaca, incifecha,asevalorasegurado, aseestado from incidentes,aseguramientos where inciplaca = aseplaca and incicanautosinvolucrados in(select min(incicanautosinvolucrados)from incidentes);
+
+select inciplaca, incifecha, incilugar, inciantheridos,asefechainicio, asefechaexpiracion,asevalorasegurado from incidentes, aseguramientos where inciplaca = aseplaca and inciplaca = 'FLL420';
+
+select * from compañia where comnit = '899999999-5';
+
+select * from aseguramientos, automotores where  aseplaca = autoplaca and asevalorasegurado in(select max(asevalorasegurado) from aseguramientos);
+
+select autoplaca, automarca, automodelo, autocilindraje,asefechainicio, asefechaexpiracion  from automotores, aseguramientos where autoplaca = aseplaca and asecodigo = 1;
+

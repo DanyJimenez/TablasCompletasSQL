@@ -1,4 +1,5 @@
-
+use almacen
+go
 create table cliente(
 	id_cli int primary key,
 	nom_cli varchar(30),
@@ -59,3 +60,23 @@ values
 ('3', '3', '12', '45000'),
 ('4', '1', '20', '65000')
 
+
+select nom_cli, ape_cli,dir_cli from cliente, pedido where fec_ped = '20120225';
+
+select id_ped, id_cli_ped,fec_ped, tit_art from pedido, Artículoxpedido, articulo where id_art = id_art_artped;
+
+select nom_cli from cliente where mes_cum_cli = 'Marzo';
+
+select id_ped, val_ped, dir_cli, nom_cli from pedido, cliente where id_cli = id_cli_ped and id_ped = 1;
+
+select nom_cli, fec_ped, val_ped from cliente, pedido  where id_cli = id_cli_ped and val_ped in(select  max(val_ped) from pedido);
+
+select * from articulo;
+
+select id_ped, tit_art, val_ped from articulo, pedido, Artículoxpedido where id_art = id_art and id_ped = id_ped;
+
+select nom_cli, ape_cli from cliente order by nom_cli;
+
+select * from articulo order by aut_art;
+
+select nom_cli,dir_cli, id_ped, can_art_artped from cliente, pedido, Artículoxpedido where id_ped = id_ped and id_cli_ped = id_cli and id_art_artped =2;
